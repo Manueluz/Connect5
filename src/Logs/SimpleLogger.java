@@ -13,7 +13,7 @@ import java.util.Calendar;
  */
 public class SimpleLogger {
 
-    
+
     /**
      * Logs a message to the console with the time it was logged
      * @param log The message to log
