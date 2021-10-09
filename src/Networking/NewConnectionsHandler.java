@@ -32,7 +32,7 @@ public class NewConnectionsHandler extends GameEventHandler {
     public void onMessageEvent(NetworkEvent event) {
         String[] tokens = event.getMessage().split("_");//Split it in tokens so its easier to work with
         if(tokens.length == 3){
-            if(tokens[0].equals("GAME") && tokens[1].equals("JOIN") && tokens[2].length() == 6){ //If its a join create game message
+            if(tokens[0].equals("GAME") && tokens[1].equals("JOIN") && tokens[2].length() == 6){ //If its a join ask the game manager to find the game
                 SimpleLogger.log("[NewConnectionsHandler]Player trying to connect id:" + tokens[2]);
                 manager.findGame(event.getConnection(),tokens[2]); //Try to join the game
             }

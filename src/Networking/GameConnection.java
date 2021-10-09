@@ -109,7 +109,7 @@ public class GameConnection extends Thread {
 
     /**
      * Run method of the thread, it waits for new messages and also clears the handlers when the flag is set
-     * and empties the handles to add stack adding the handlers to the game connection
+     * and empties the handlers to add stack adding the handlers to the game connection
      */
     @Override
     public void run() {
