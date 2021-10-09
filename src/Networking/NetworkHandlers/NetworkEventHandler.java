@@ -1,10 +1,13 @@
-package Networking;
+package Networking.NetworkHandlers;
+
+import Networking.NetworkEvent;
+
 /**
  * Abstract class for a game event handler
  * @author Manueluz
  * @version 1.0
  */
-public abstract class GameEventHandler {
+public abstract class NetworkEventHandler {
 
 
     /**

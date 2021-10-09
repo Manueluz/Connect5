@@ -2,6 +2,7 @@ package Game.Row5;
 
 import Game.GameManager;
 import Networking.GameConnection;
+import Networking.NetworkHandlers.GameMovesHandler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -87,7 +88,7 @@ public class Row5Lolies {
         //If we got room
         if(players.size() < gameSize){
             players.put(connection,currentID); //Associate him with an id
-            connection.addEventHandler(new GameListenersHandler(this)); //Register the movement listener so we know the player moves
+            connection.addEventHandler(new GameMovesHandler(this)); //Register the movement listener so we know the player moves
             currentID++;
             sendHeaders(connection); //Send him info about the game
         }

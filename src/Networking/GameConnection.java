@@ -1,6 +1,7 @@
 package Networking;
 
 import Logs.SimpleLogger;
+import Networking.NetworkHandlers.NetworkEventHandler;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,8 +22,8 @@ public class GameConnection extends Thread {
 
     private boolean stop = false;
     private Socket socket;
-    private ArrayList<GameEventHandler> eventHandlers;
-    private Stack<GameEventHandler> handlersToAdd;
+    private ArrayList<NetworkEventHandler> eventHandlers;
+    private Stack<NetworkEventHandler> handlersToAdd;
     private PrintWriter networkOut;
     private BufferedReader networkInput;
     private boolean stopping;
@@ -62,10 +63,10 @@ public class GameConnection extends Thread {
     /**
      * Adds an event handler that will be called when events
      * such as messages and disconnects occur
-     * @param gameEventHandler The handler to add
+     * @param networkEventHandler The handler to add
      */
-    public void addEventHandler(GameEventHandler gameEventHandler) {
-        handlersToAdd.push(gameEventHandler);
+    public void addEventHandler(NetworkEventHandler networkEventHandler) {
+        handlersToAdd.push(networkEventHandler);
     }
 
 
@@ -91,7 +92,7 @@ public class GameConnection extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for(GameEventHandler g : eventHandlers){ //Call the disconnect event for all the handlers
+        for(NetworkEventHandler g : eventHandlers){ //Call the disconnect event for all the handlers
             g.onDisconnectEvent(new NetworkEvent(null,this));
         }
         stop = true;
@@ -129,7 +130,7 @@ public class GameConnection extends Thread {
                         terminate();
                         break;
                     }
-                    for (GameEventHandler g : eventHandlers) { //Pass the message in form of an event to the event handlers
+                    for (NetworkEventHandler g : eventHandlers) { //Pass the message in form of an event to the event handlers
                         g.onMessageEvent(new NetworkEvent(inputLine, this));
                     }
                  }

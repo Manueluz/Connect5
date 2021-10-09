@@ -1,7 +1,8 @@
-package Networking;
+package Networking.NetworkHandlers;
 
 import Game.GameManager;
 import Logs.SimpleLogger;
+import Networking.NetworkEvent;
 
 
 /**
@@ -9,7 +10,7 @@ import Logs.SimpleLogger;
  * @version 1.0
  * @author Manueluz
  */
-public class NewConnectionsHandler extends GameEventHandler {
+public class NewConnectionsHandler extends NetworkEventHandler {
 
     private GameManager manager;
 

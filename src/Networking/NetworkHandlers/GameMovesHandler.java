@@ -1,6 +1,6 @@
-package Game.Row5;
+package Networking.NetworkHandlers;
 
-import Networking.GameEventHandler;
+import Game.Row5.Row5Lolies;
 import Networking.NetworkEvent;
 
 /**
@@ -10,7 +10,7 @@ import Networking.NetworkEvent;
  * @version 1.0
  */
 
-public class GameListenersHandler extends GameEventHandler {
+public class GameMovesHandler extends NetworkEventHandler {
 
     //Gotta hold the game we are listening for
     private Row5Lolies game;
@@ -20,7 +20,7 @@ public class GameListenersHandler extends GameEventHandler {
      * Builder for the game listener
      * @param game The game we are listening for
      */
-    public GameListenersHandler(Row5Lolies game){
+    public GameMovesHandler(Row5Lolies game){
         this.game = game;
     }
 

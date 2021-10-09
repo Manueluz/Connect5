@@ -2,6 +2,7 @@ package Networking;
 
 import Game.GameManager;
 import Logs.SimpleLogger;
+import Networking.NetworkHandlers.NewConnectionsHandler;
 
 import java.io.IOException;
 import java.net.*;
