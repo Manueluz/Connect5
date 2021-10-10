@@ -85,8 +85,15 @@ var canvas;
 function beginGame(boardSize){
 
     //Load the Game html content
-    loadHTML('<div id="wrapper"><canvas id="canvas" width = "1200" height="1200"></canvas><div id = GameID><p id = "id">#GameID</p><div id="chat"><div id="writezonediv"><input type="text" name="chat" id="writezone"></div></div></div></div>');
+    loadHTML('<div id="wrapper"><canvas id="canvas" width = "1200" height="1200"></canvas><div id = GameID><p id = "id">#GameID</p><div id="chat"><div id = "messages"></div><div id="writezonediv"><input type="text" name="chat" id="writezone"></div></div></div></div>');
 
+    //Custom input for chat
+    document.getElementById("writezone").addEventListener("keyup", ({key}) => {
+      if (key === "Enter") {
+          socket.send("CHAT_MSG_" + document.getElementById("writezone").value); //Send the message to the server
+          document.getElementById("writezone").value = ""; //Clean the input field
+      }
+    })
     //Get the canvas once it loaded and get its context
     canvas = document.getElementById("canvas");
     if (!canvas.getContext) {
@@ -186,6 +193,11 @@ socket.onmessage = function(event) {
     if(tokens[0] == "GAME" && tokens[1] == "HEADERS" && tokens[2] == "PLAYER" ){ //Valid game headers
       generateColors(); //Start the colors
       beginGame(Number(tokens[5])); //Start the game with the board size
+    }
+  }
+  if(tokens.length == 5){
+    if(tokens[0] == "CHAT" && tokens[1] == "MSG"){ //Valid message headers
+          document.getElementById("messages").insertAdjacentHTML('beforeend','<p style="color :'+colors[Number(tokens[4])] +'; "> '+ tokens[2]+'</p>') //Add the message to the messages div
     }
   }
   if(tokens.length == 4){
