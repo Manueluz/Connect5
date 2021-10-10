@@ -38,6 +38,11 @@ public class GameMovesHandler extends NetworkEventHandler {
                 game.move(Integer.parseInt(tokens[2]),Integer.parseInt(tokens[4]),event.getConnection()); //Tell the game the move
             }
         }
+        if(tokens.length == 3){
+            if(tokens[0].equals("CHAT") && tokens[1].equals("MSG")){ //If its a valid chat message
+                game.handleMessage(event.getConnection(),tokens[2]); //Handle the message
+            }
+        }
     }
 
 

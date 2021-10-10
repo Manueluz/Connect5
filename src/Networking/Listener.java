@@ -1,6 +1,6 @@
 package Networking;
 
-import Game.GameManager;
+import Managers.GameManager;
 import Logs.SimpleLogger;
 import Networking.NetworkHandlers.NewConnectionsHandler;
 

@@ -1,8 +1,6 @@
 package Networking;
 
 
-import Networking.GameConnection;
-
 /**
  * Network event, packet that holds all the info of a network event
  * @version 1.0

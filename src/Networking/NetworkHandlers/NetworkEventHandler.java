@@ -2,6 +2,7 @@ package Networking.NetworkHandlers;
 
 import Networking.NetworkEvent;
 
+
 /**
  * Abstract class for a game event handler
  * @author Manueluz

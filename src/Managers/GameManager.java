@@ -1,4 +1,4 @@
-package Game;
+package Managers;
 
 import Game.Row5.Row5Lolies;
 import Networking.GameConnection;
@@ -11,7 +11,6 @@ import java.util.Random;
  * Game manager that holds and handles the games and player connections to them
  *
  * @version 1.0
- *
  * @author Manueluz
  */
 

@@ -1,4 +1,4 @@
-import Game.GameManager;
+import Managers.GameManager;
 import Networking.Listener;
 
 

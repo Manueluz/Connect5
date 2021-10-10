@@ -1,6 +1,7 @@
 package Game.Row5;
 
-import Game.GameManager;
+import Game.ChatManager.ChatManager;
+import Managers.GameManager;
 import Networking.GameConnection;
 import Networking.NetworkHandlers.GameMovesHandler;
 
@@ -25,6 +26,7 @@ public class Row5Lolies {
     private String gameId;
     private GameManager manager;
     private Boolean gameEnding;
+    private ChatManager chatManager;
 
 
     /**
@@ -134,6 +136,16 @@ public class Row5Lolies {
 
 
     /**
+     *Tells the chat manger to broadcast a message to all the players
+     * @param connection The player sending the message
+     * @param message The message the player sent
+     */
+    public void handleMessage(GameConnection connection,String message){
+        chatManager.distributeMessage(message,players.get(connection));
+    }
+
+
+    /**
      * Handles the disconnection of a player
      * Removing him from the list and skipping his move if it was the players turn
      * @param connection The player that disconnected
@@ -162,6 +174,7 @@ public class Row5Lolies {
      */
     private void startGame(){
         inProgress = true;
+        chatManager = new ChatManager(players); //Create the chat manager now that we have all the players
         genBoard(boardSize); //Create the board
         notifyPlayers(); //Tell them its started
     }
