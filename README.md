@@ -5,7 +5,7 @@ Making a row of 3 was far too easy and the board was far too small so we redesig
 
 "Inspired" on kahoot for the join system where you can create a game and then you get an id you can give to your friends so the dumb fucks can join you in this terrible decision that youve just made. The games can be as big as you want in theory but i got lazy with the colors so for now there is 10 player max (2-10 players)
 
-![Game](hhttps://i.imgur.com/rARdCjN.jpg)
+![Game](https://i.imgur.com/IuGPAqf.png)
 
 Also we implemented a chat system so you can shit on whoever just blocked your winning move, or maybe talk about hentai(you do you) we do not ask any questions.
 
