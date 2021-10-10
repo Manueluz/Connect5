@@ -29,8 +29,6 @@ public class ChatManager {
      * @param authorID The id of the player that sent the message
      */
     public void distributeMessage(String message, int authorID){
-        players.forEach((connection, integer) -> {
-            connection.sendData("CHAT_MSG_" + message +"_ID_"+authorID);
-        });
+        players.forEach((connection, integer) -> connection.sendData("CHAT_MSG_" + message +"_ID_"+authorID));
     }
 }
