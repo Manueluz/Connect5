@@ -197,7 +197,7 @@ socket.onmessage = function(event) {
   }
   if(tokens.length == 5){
     if(tokens[0] == "CHAT" && tokens[1] == "MSG"){ //Valid message headers
-          document.getElementById("messages").insertAdjacentHTML('beforeend','<p style="color :'+colors[Number(tokens[4])] +'; "> '+ tokens[2]+'</p>') //Add the message to the messages div
+          document.getElementById("messages").insertAdjacentHTML('beforeend','<p class="textChat" style="color :'+colors[Number(tokens[4])] +'; "><strong>> '+ tokens[2]+'</strong></p>') //Add the message to the messages div
     }
   }
   if(tokens.length == 4){
@@ -240,7 +240,7 @@ socket.onmessage = function(event) {
 
 socket.onclose = function(event) {
   if(win > 0){ //If there is a winner display the win message
-    loadHTML('<div id ="padding"><p id="Error">This color won!</p></div>');
+    loadHTML('<div id ="padding1"><p id="Error">This color won!</p></div>');
     document.getElementById("Error").style.backgroundColor = colors[win];
     return;
   }
