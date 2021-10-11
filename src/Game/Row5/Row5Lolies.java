@@ -141,6 +141,7 @@ public class Row5Lolies {
      * @param message The message the player sent
      */
     public void handleMessage(GameConnection connection,String message){
+        if(!isInProgress()){return;}
         chatManager.distributeMessage(message,players.get(connection));
     }
 
