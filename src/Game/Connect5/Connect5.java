@@ -1,4 +1,4 @@
-package Game.Row5;
+package Game.Connect5;
 
 import Game.ChatManager.ChatManager;
 import Managers.GameManager;
@@ -14,7 +14,7 @@ import java.util.Map;
  * @version 1.0
  * @author Manueluz
  */
-public class Row5Lolies {
+public class Connect5 {
 
     private HashMap<GameConnection,Integer> players;
     private int gameSize;
@@ -36,7 +36,7 @@ public class Row5Lolies {
      * @param gameId The id the game manager gave the game
      * @param manager The manager that's in charge of this game
      */
-    public Row5Lolies(int gameSize, int boardSize , String gameId , GameManager manager){
+    public Connect5(int gameSize, int boardSize , String gameId , GameManager manager){
         this.boardSize = boardSize;
         this.gameSize = gameSize;
         currentID = 1;

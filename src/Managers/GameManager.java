@@ -1,6 +1,6 @@
 package Managers;
 
-import Game.Row5.Row5Lolies;
+import Game.Connect5.Connect5;
 import Networking.GameConnection;
 import Logs.SimpleLogger;
 
@@ -16,7 +16,7 @@ import java.util.Random;
 
 public class GameManager{
 
-    private HashMap<String,Row5Lolies> games;
+    private HashMap<String, Connect5> games;
 
     public GameManager(){
         games = new HashMap<>();
@@ -31,7 +31,7 @@ public class GameManager{
      */
     public void createGame(GameConnection connection, int size, int boardSize){
         String id = generateID();//Get an id for the new game
-        Row5Lolies game = new Row5Lolies(size,boardSize,id,this);
+        Connect5 game = new Connect5(size,boardSize,id,this);
         game.addPlayer(connection);
         connection.clearHandlers();//Clean the player event handlers so they don't interfere
         games.put(id,game);
