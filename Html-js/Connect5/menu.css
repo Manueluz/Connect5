@@ -1,5 +1,5 @@
 body {
-  height: 97vh;
+  height: 100%;
   background-color: #202225;
 }
 div#wrapper{
@@ -27,7 +27,7 @@ div#GameID{
   div#GameID{
     width: 100%;
     margin: 10px;
-
+    cursor: text;
     height: calc(100% - 95vmin);
   }
 }
@@ -51,7 +51,6 @@ p#id{
   text-decoration: none;
   border: solid 3px #2F3136;
   background-color: #2F3136;
-  color: lightgray;
   border-radius: 4px;
   font-size: 400%;
   transition: .4s;
@@ -102,4 +101,159 @@ p#id:hover {
   padding-left: 2%;
   color: white;
   font-size: 100%;
+}
+
+#Create{
+  text-align: center;
+}
+
+#connect{
+  cursor: pointer;
+  width: 28%;
+  height: 80px;
+  font-family: Calibri, Helvetica, sans-serif;
+  font-size: 220%;
+  font-weight: bold;
+  transition: 0.6s;
+}
+
+#connect:hover{
+  width: 34%;
+  height: 86px;
+  border-color: #2ecc71;
+}
+
+#gameID{
+  text-align: center;
+  width: 27.5%;
+  height: 70px;
+  font-family: Calibri, Helvetica, sans-serif;
+  font-size: 150%;
+  color: white;
+  transition: 0.6s;
+  cursor: text;
+}
+
+#gameID:hover{
+  border-color: #2ecc71;
+  width: 28.5%;
+  height: 75px;
+}
+
+.button{
+  background-color: #2F3136;
+  border: 3px solid #3498db;
+  border-radius: 30px;
+  text-align: center;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  text-align: center;
+  width: 27.5%;
+  height: 70px;
+  font-family: Calibri, Helvetica, sans-serif;
+  font-size: 150%;
+  color: white;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+.button:hover{
+  border-color: #2ecc71;
+  width: 28.5%;
+  height: 75px;
+}
+
+.button1{
+  background-color: #2F3136;
+  border: 3px solid #3498db;
+  border-radius: 30px;
+  text-align: center;
+  text-align: center;
+  width: 23%;
+  height: 65px;
+  font-family: Calibri, Helvetica, sans-serif;
+  font-size: 150%;
+  color: white;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+.button1:hover{
+  border-color: #2ecc71;
+  width: 26%;
+  height: 80px;
+}
+
+#Title{
+  color: white;
+  font-size: 70px;
+  font-family: Calibri, Helvetica, sans-serif;
+  margin-top: 6%;
+  margin-bottom: -5px;
+  display: inline-block;
+}
+
+a#Title{
+  color: #2ecc71;
+}
+
+#by{
+  color: white;
+  font-size: 20px;
+  font-family: Calibri, Helvetica, sans-serif;
+  margin-bottom: 60px;
+  display: inline-block;
+}
+
+a#by{
+  color: #2ecc71;
+}
+
+#CreateGreen{
+  color: #2ecc71;
+}
+
+#padding{
+  text-align: center;
+}
+
+#padding1{
+  margin-left: 40%;
+  margin-top: 10%;
+  text-align: center;
+}
+
+#numberPlayers{
+  color: white;
+  font-size: 50px;
+  font-family: Calibri, Helvetica, sans-serif;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  display: inline-block;
+}
+
+#playerNum{
+  font-size: 120%;
+  width: 23%;
+  height: 55px;
+  cursor: text;
+}
+
+#startGame2{
+  margin-top: 2%;
+}
+
+#Error{
+  background-color: #2F3136;
+  border: 3px solid #3498db;
+  border-radius: 30px;
+  text-align: center;
+  margin-top: 5%;
+  padding-top: 20px;
+  text-align: center;
+  width: 27.5%;
+  height: 50px;
+  font-family: Calibri, Helvetica, sans-serif;
+  font-size: 150%;
+  color: white;
 }

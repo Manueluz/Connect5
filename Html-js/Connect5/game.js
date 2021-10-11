@@ -18,7 +18,7 @@ field.addEventListener("keyup", ({key}) => {
 function loadGameSelector(){
 
   //Loads the html with the buttons
-  loadHTML('<div id ="padding"><div><p id="numberPlayers">[ Choose number of players ]</p><br><button id = "startGame2" class = "button">2 players</button><p></p><button id = "startGame3" class = "button">3 players</button><p></p><button id = "startGame4" class = "button">4 players</button><p></p><input type = "text" class = "button" id = "playerNum" placeholder="Or specify the number"></input></div></div>');
+  loadHTML('<div id ="padding"><div><p id="numberPlayers"><a id="CreateGreen">[</a><a><strong> Choose number of players</strong></a><a id="CreateGreen"> ]</a></p><br><button id = "startGame2" class = "button1"><strong id="CreateGreen">2</strong><strong> players</strong></button><p></p><button id = "startGame3" class = "button1"><strong id="CreateGreen">3</strong><strong> players</strong></button><p></p><button id = "startGame4" class = "button1"><strong id="CreateGreen">4</strong><strong> players</strong></button><p></p><input type = "text" class = "button1" id = "playerNum" placeholder="Or specify the number"></input></div></div>');
 
   //Add click listener to each button
   document.getElementById('startGame2').addEventListener("click",startGame2,false);
@@ -244,11 +244,11 @@ socket.onclose = function(event) {
     document.getElementById("Error").style.backgroundColor = colors[win];
     return;
   }
-  loadHTML('<div id ="padding"><p id="Error">Connection lost</p></div>'); //if not display an error
+  loadHTML('<div id ="padding1"><p id="Error">Connection lost</p></div>'); //if not display an error
 };
 
 socket.onerror = function(error) {
-  loadHTML('<div id ="padding"><p id="Error">Connection lost</p></div>'); //Display an error so the player knows he lost connection
+  loadHTML('<div id ="padding1"><p id="Error">Connection lost</p></div>'); //Display an error so the player knows he lost connection
 };
 
 function loadHTML(page){
