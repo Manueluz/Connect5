@@ -31,7 +31,6 @@ public class GETJob implements Runnable {
         try {
             //Get the requested file
             String requestedFile = httpExchange.getRequestURI().getRawPath().substring(1);
-            System.out.println(requestedFile);
             File page;
             if (!requestedFile.contains(".")) {
                 page = new File("HttpServer/ServerRoot/" + requestedFile  + "index.html");
