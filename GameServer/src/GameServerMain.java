@@ -10,7 +10,7 @@ public class GameServerMain {
         Linker linker = new Linker();
         linker.start(9090);
 
-        CatHttp httpServer = new CatHttp(9090);
+        CatHttp httpServer = new CatHttp(9092);
         httpServer.startCatServer();
 
         GameManager manager = new GameManager();
