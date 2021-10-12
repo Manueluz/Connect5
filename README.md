@@ -9,7 +9,7 @@ Making a row of 3 was far too easy and the board was far too small so we redesig
 #
 Also we implemented a chat system so you can shit on whoever just blocked your winning move, or maybe talk about hentai(you do you) we do not ask any questions.
 #
-![Game](https://i.imgur.com/IuGPAqf.png)
+![Game](https://i.imgur.com/85TLgZV.png)
 #
 If you see any bugs, congrats on finding an intended easter egg. Please report it to us so we can properly track you down and break your knees
 
