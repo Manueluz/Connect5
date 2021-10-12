@@ -53,7 +53,7 @@ public class CatHttp {
         @Override
         public void handle(HttpExchange httpExchange){
             if(httpExchange.getRequestMethod().equals("GET")){
-                Thread jobThread = new Thread(new GETJob(httpExchange));
+                Thread jobThread = new Thread(new GETJob(httpExchange)); //Start a new GET job for the request
                 jobThread.start();
             }
         }

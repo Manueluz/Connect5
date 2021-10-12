@@ -38,15 +38,18 @@ public class GETJob implements Runnable {
                 page = new File("HttpServer/ServerRoot/" + requestedFile);
             }
 
+            if(!page.exists()){
+                page = new File("HttpServer/ServerRoot/notFound.html");
+            }
 
             //Add the correct headers for the file type
-            if (httpExchange.getRequestURI().getRawPath().substring(1).contains(".js")) {
+            if (page.getName().contains(".js")) {
                 httpExchange.getResponseHeaders().add("Content-Type", "application/javascript");
             }
-            if (httpExchange.getRequestURI().getRawPath().substring(1).contains(".html")) {
+            if (page.getName().contains(".html")) {
                 httpExchange.getResponseHeaders().add("Content-Type", "text/html");
             }
-            if (httpExchange.getRequestURI().getRawPath().substring(1).contains(".css")) {
+            if (page.getName().contains(".css")) {
                 httpExchange.getResponseHeaders().add("Content-Type", "text/css");
             }
 
