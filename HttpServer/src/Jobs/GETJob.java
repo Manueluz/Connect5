@@ -32,7 +32,8 @@ public class GETJob implements Runnable {
             //Get the requested file
             String requestedFile = httpExchange.getRequestURI().getRawPath().substring(1);
             File page;
-            if (!requestedFile.contains(".")) {
+
+            if (!requestedFile.contains(".")) {//Check if its asking for an specific file or the index
                 page = new File("HttpServer/ServerRoot/" + requestedFile  + "index.html");
             }else {
                 page = new File("HttpServer/ServerRoot/" + requestedFile);
@@ -40,6 +41,11 @@ public class GETJob implements Runnable {
 
             if(!page.exists()){
                 page = new File("HttpServer/ServerRoot/notFound.html");
+                //Send error headers
+                httpExchange.sendResponseHeaders(404, page.length());
+            }else{
+                //Send headers
+                httpExchange.sendResponseHeaders(200, page.length());
             }
 
             //Add the correct headers for the file type
@@ -52,9 +58,6 @@ public class GETJob implements Runnable {
             if (page.getName().contains(".css")) {
                 httpExchange.getResponseHeaders().add("Content-Type", "text/css");
             }
-
-            //Send headers
-            httpExchange.sendResponseHeaders(200, page.length());
 
             //Get the file input stream
             OutputStream out = httpExchange.getResponseBody();
