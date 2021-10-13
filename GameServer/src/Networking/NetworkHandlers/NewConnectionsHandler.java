@@ -33,6 +33,10 @@ public class NewConnectionsHandler extends NetworkEventHandler {
     public void onMessageEvent(NetworkEvent event) {
         String[] tokens = event.getMessage().split("_");//Split it in tokens so its easier to work with
         if(tokens.length == 3){
+            if(tokens[0].equals("GAME") && tokens[1].equals("PUBLIC")){ //If its a join to a public game. ask the game manager to get a public game
+                SimpleLogger.log("[NewConnectionsHandler]Player trying to connect to public game");
+                manager.joinPublicGame(event.getConnection()); //Join to a public game
+            }
             if(tokens[0].equals("GAME") && tokens[1].equals("JOIN") && tokens[2].length() == 6){ //If its a join ask the game manager to find the game
                 SimpleLogger.log("[NewConnectionsHandler]Player trying to connect id:" + tokens[2]);
                 manager.findGame(event.getConnection(),tokens[2]); //Try to join the game

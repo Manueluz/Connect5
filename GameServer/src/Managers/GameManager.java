@@ -4,6 +4,7 @@ import Game.Connect5.Connect5;
 import Networking.GameConnection;
 import Logs.SimpleLogger;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -17,9 +18,33 @@ import java.util.Random;
 public class GameManager{
 
     private HashMap<String, Connect5> games;
+    private ArrayList<Connect5> publicGames;
 
     public GameManager(){
+        publicGames = new ArrayList<>();
         games = new HashMap<>();
+    }
+
+
+    /**
+     * Searches for a public game for the given connection, if there are none available public games it creates a new public game.
+     * @param connection the player trying to join a public game
+     */
+    public void joinPublicGame(GameConnection connection){
+        if(publicGames.isEmpty()){//If there aren't any games going on create a new one
+            publicGames.add(new Connect5(2,20,generateID(),this));
+        }
+        publicGames.forEach((game)->{//Find a game that is not in progress
+            if(!game.isInProgress()){
+                game.addPlayer(connection);
+            }else {
+                publicGames.remove(game);
+                if(publicGames.isEmpty()){ //Check if after removing a game the list becomes empty, if yes create a game and add the player to it
+                    publicGames.add(new Connect5(2,20,generateID(),this));
+                    publicGames.get(0).addPlayer(connection);
+                }
+            }
+        });
     }
 
 
