@@ -4,8 +4,10 @@ let socket = new WebSocket("ws://90.175.129.152:9090/test"); //Start the socket
 //Get the button and input (Create and join game)
 var button = document.getElementById('connect');
 var field = document.getElementById("gameID");
+var publicButton = document.getElementById("connectPublic")
 
 //Add the listeners so the player can create and join games
+publicButton.addEventListener("click",tryJoinPublicGame,false)
 button.addEventListener("click",loadGameSelector,false);
 field.addEventListener("keyup", ({key}) => {
     if (key === "Enter") {
@@ -66,6 +68,12 @@ function startGame3() {
 }
 function startGame4() {
   socket.send("GAME_CREATE_004020");
+}
+
+//Tries to join a game
+function tryJoinPublicGame() {
+  //Ask the server to join
+  socket.send("GAME_PUBLIC_NULL");
 }
 
 

@@ -33,15 +33,19 @@ public class GameManager{
     public void joinPublicGame(GameConnection connection){
         if(publicGames.isEmpty()){//If there aren't any games going on create a new one
             publicGames.add(new Connect5(2,20,generateID(),this));
+            SimpleLogger.log("[GameManager]Created new public game");
         }
         publicGames.forEach((game)->{//Find a game that is not in progress
             if(!game.isInProgress()){
                 game.addPlayer(connection);
+                SimpleLogger.log("[GameManager]Player connected to public game");
             }else {
                 publicGames.remove(game);
                 if(publicGames.isEmpty()){ //Check if after removing a game the list becomes empty, if yes create a game and add the player to it
                     publicGames.add(new Connect5(2,20,generateID(),this));
+                    SimpleLogger.log("[GameManager]Created new public game");
                     publicGames.get(0).addPlayer(connection);
+                    SimpleLogger.log("[GameManager]Player connected to public game");
                 }
             }
         });
