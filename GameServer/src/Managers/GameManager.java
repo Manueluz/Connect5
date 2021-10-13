@@ -35,20 +35,21 @@ public class GameManager{
             publicGames.add(new Connect5(2,20,generateID(),this));
             SimpleLogger.log("[GameManager]Created new public game");
         }
-        publicGames.forEach((game)->{//Find a game that is not in progress
-            if(!game.isInProgress()){
+        for (Connect5 game : publicGames) {//Find a game that is not in progress
+            if (!game.isInProgress()) {
                 game.addPlayer(connection);
                 SimpleLogger.log("[GameManager]Player connected to public game");
-            }else {
+                return;
+            } else {
                 publicGames.remove(game);
-                if(publicGames.isEmpty()){ //Check if after removing a game the list becomes empty, if yes create a game and add the player to it
-                    publicGames.add(new Connect5(2,20,generateID(),this));
+                if (publicGames.isEmpty()) { //Check if after removing a game the list becomes empty, if yes create a game and add the player to it
+                    publicGames.add(new Connect5(2, 20, generateID(), this));
                     SimpleLogger.log("[GameManager]Created new public game");
                     publicGames.get(0).addPlayer(connection);
                     SimpleLogger.log("[GameManager]Player connected to public game");
                 }
             }
-        });
+        }
     }
 
 
